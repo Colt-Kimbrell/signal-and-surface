@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PowerPoint</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+<main id="experience">
+
+    <!-- =====================================================
+         PHYSICAL WORKSTATION
+         ===================================================== -->
+
+    <section id="workstation">
+
+        <img
+            id="desk-image"
+            src="images/workstation/desk.png"
+            alt="A dim NASA workstation during the STS-107 mission."
+        >
+
+        <button
+            id="notepad-hotspot"
+            type="button"
+            aria-label="Examine the illuminated notepad"
+        ></button>
+
+        <button
+            id="computer-hotspot"
+            type="button"
+            aria-label="Examine the computer"
+            disabled
+        ></button>
+
+    </section>
+
+
+    <!-- =====================================================
+         OPENING POEM
+         ===================================================== -->
+
+    <section
+        id="poem-overlay"
+        aria-hidden="true"
+    >
+
+        <div id="poem-paper">
+
+            <button
+                id="close-poem"
+                type="button"
+                aria-label="Return to the desk"
+            >
+                ×
+            </button>
+
+            <div class="poem-content">
+
+                <p>
+                    We knew the weight.<br>
+                    We knew the speed.<br>
+                    We knew where it struck.
+                </p>
+
+                <p>
+                    We measured what we could see<br>
+                    and named what we could not<br>
+                    <em>unlikely.</em>
+                </p>
+
+                <p>
+                    Somewhere between<br>
+                    the photograph<br>
+                    and the briefing,
+                </p>
+
+                <p>
+                    uncertainty became a bullet point.
+                </p>
+
+                <p>
+                    a bullet point became reassurance.
+                </p>
+
+                <p>
+                    reassurance became
+                </p>
+
+                <p class="final-line">
+                    NEXT SLIDE.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CRT TRANSITION
+         ===================================================== -->
+
+    <section
+        id="crt-transition"
+        aria-hidden="true"
+    >
+        <div class="crt-flash"></div>
+    </section>
+
+
+    <!-- =====================================================
+         DESKTOP
+         ===================================================== -->
+
+    <section
+        id="desktop"
+        aria-hidden="true"
+    >
+
+        <div id="desktop-icons">
+
+            <button
+                class="desktop-icon"
+                data-program="sts107"
+                type="button"
+            >
+                <span class="icon-image folder-icon"></span>
+                <span class="icon-label">STS-107</span>
+            </button>
+
+            <button
+                class="desktop-icon"
+                data-program="engineering"
+                type="button"
+            >
+                <span class="icon-image folder-icon"></span>
+                <span class="icon-label">Engineering</span>
+            </button>
+
+            <button
+                class="desktop-icon"
+                data-program="mail"
+                type="button"
+            >
+                <span class="icon-image mail-icon"></span>
+                <span class="icon-label">Mail</span>
+            </button>
+
+            <button
+                class="desktop-icon"
+                data-program="calculator"
+                type="button"
+            >
+                <span class="icon-image calculator-icon"></span>
+                <span class="icon-label">Calculator</span>
+            </button>
+
+            <button
+                class="desktop-icon"
+                data-program="powerpoint"
+                type="button"
+            >
+                <span class="icon-image powerpoint-icon"></span>
+
+                <span class="icon-label">
+                    Debris Assessment.ppt
+                </span>
+            </button>
+
+        </div>
+
+
+        <div id="desktop-status">
+            STS-107 ENGINEERING WORKSTATION
+        </div>
+
+
+        <!-- =================================================
+             STS-107 EXPLORER
+             ================================================= -->
+
+        <section
+            class="app-window explorer-window"
+            id="window-sts107"
+            data-program="sts107"
+            aria-hidden="true"
+        >
+
+            <div class="window-titlebar">
+
+                <div class="window-title">
+                    <span class="tiny-folder"></span>
+                    <span id="sts-title">STS-107</span>
+                </div>
+
+                <div class="window-controls">
+
+                    <button
+                        class="window-control minimize-window"
+                        type="button"
+                    >
+                        _
+                    </button>
+
+                    <button
+                        class="window-control maximize-window"
+                        type="button"
+                    >
+                        □
+                    </button>
+
+                    <button
+                        class="window-control close-window"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="window-menu">
+                <span>File</span>
+                <span>Edit</span>
+                <span>View</span>
+                <span>Favorites</span>
+                <span>Tools</span>
+                <span>Help</span>
+            </div>
+
+
+            <div class="window-toolbar">
+
+                <button
+                    id="sts-back"
+                    type="button"
+                    class="toolbar-button"
+                    disabled
+                >
+                    ←
+                </button>
+
+                <button
+                    type="button"
+                    class="toolbar-button"
+                    disabled
+                >
+                    →
+                </button>
+
+                <div class="toolbar-divider"></div>
+
+                <span>Address</span>
+
+                <div
+                    class="address-bar"
+                    id="sts-address"
+                >
+                    C:\STS-107
+                </div>
+
+            </div>
+
+
+            <!-- ROOT -->
+
+            <div
+                class="window-body explorer-body sts-page active-page"
+                id="sts-page-root"
+            >
+
+                <aside class="explorer-sidebar">
+
+                    <div class="sidebar-heading">
+                        File and Folder Tasks
+                    </div>
+
+                    <p>
+                        View mission files and engineering records.
+                    </p>
+
+                    <div class="sidebar-heading">
+                        Other Places
+                    </div>
+
+                    <button
+                        type="button"
+                        class="sidebar-link"
+                        data-open-program="engineering"
+                    >
+                        Engineering
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sidebar-link"
+                        data-open-program="mail"
+                    >
+                        Mail
+                    </button>
+
+                </aside>
+
+
+                <div class="explorer-files">
+
+                    <button
+                        type="button"
+                        class="file-item sts-folder"
+                        data-folder="mission"
+                    >
+                        <span class="large-folder-icon"></span>
+                        <span class="file-name">Mission</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="file-item sts-folder"
+                        data-folder="imagery"
+                    >
+                        <span class="large-folder-icon"></span>
+                        <span class="file-name">Imagery</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="file-item sts-folder"
+                        data-folder="debris"
+                    >
+                        <span class="large-folder-icon"></span>
+                        <span class="file-name">Debris</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="file-item"
+                        id="mission-notes-file"
+                    >
+                        <span class="text-file-icon">TXT</span>
+                        <span class="file-name">Mission Notes.txt</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MISSION -->
+
+            <div
+                class="window-body archive-page sts-page"
+                id="sts-page-mission"
+            >
+
+                <div class="archive-document">
+
+                    <div class="document-header">
+
+                        <div class="document-code">
+                            STS-107
+                        </div>
+
+                        <div>
+                            <h1>Mission Overview</h1>
+
+                            <p class="document-subtitle">
+                                Space Shuttle Columbia
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mission-grid">
+
+                        <div class="data-box">
+                            <span class="data-label">ORBITER</span>
+                            <strong>Columbia</strong>
+                        </div>
+
+                        <div class="data-box">
+                            <span class="data-label">LAUNCH</span>
+                            <strong>16 JAN 2003</strong>
+                        </div>
+
+                        <div class="data-box">
+                            <span class="data-label">PAD</span>
+                            <strong>39A</strong>
+                        </div>
+
+                        <div class="data-box">
+                            <span class="data-label">MISSION</span>
+                            <strong>Research / SPACEHAB</strong>
+                        </div>
+
+                    </div>
+
+
+                    <h2>Mission</h2>
+
+                    <p>
+                        STS-107 is a dedicated multidisciplinary
+                        microgravity and Earth science research
+                        mission aboard Space Shuttle Columbia.
+                    </p>
+
+                    <p>
+                        The sixteen-day flight carries more than
+                        eighty international experiments.
+                    </p>
+
+
+                    <h2>Crew</h2>
+
+                    <div class="crew-list">
+
+                        <div>
+                            <strong>Rick D. Husband</strong>
+                            <span>Commander</span>
+                        </div>
+
+                        <div>
+                            <strong>William C. McCool</strong>
+                            <span>Pilot</span>
+                        </div>
+
+                        <div>
+                            <strong>Michael P. Anderson</strong>
+                            <span>Payload Commander</span>
+                        </div>
+
+                        <div>
+                            <strong>Kalpana Chawla</strong>
+                            <span>Mission Specialist</span>
+                        </div>
+
+                        <div>
+                            <strong>David M. Brown</strong>
+                            <span>Mission Specialist</span>
+                        </div>
+
+                        <div>
+                            <strong>Laurel B. Clark</strong>
+                            <span>Mission Specialist</span>
+                        </div>
+
+                        <div>
+                            <strong>Ilan Ramon</strong>
+                            <span>Payload Specialist</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGERY -->
+
+            <div
+                class="window-body archive-page sts-page"
+                id="sts-page-imagery"
+            >
+
+                <div class="imagery-workspace">
+
+                    <div class="imagery-heading">
+
+                        <div>
+                            <strong>ASCENT IMAGERY REVIEW</strong>
+
+                            <span>
+                                STS-107 / External Tank Debris Event
+                            </span>
+                        </div>
+
+                        <div class="imagery-status">
+                            REVIEW
+                        </div>
+
+                    </div>
+
+
+                    <div class="image-review-panel">
+
+                        <div class="fake-launch-frame">
+
+                            <div class="frame-crosshair horizontal"></div>
+                            <div class="frame-crosshair vertical"></div>
+
+                            <div class="orbiter-shape">
+                                <div class="orbiter-body"></div>
+                                <div class="orbiter-wing left-wing"></div>
+                                <div class="orbiter-wing right-wing"></div>
+                            </div>
+
+                            <div class="foam-track"></div>
+
+                            <div class="frame-label frame-label-top">
+                                ASCENT CAMERA
+                            </div>
+
+                            <div class="frame-label frame-label-bottom">
+                                T+81.9
+                            </div>
+
+                        </div>
+
+
+                        <div class="image-metadata">
+
+                            <h2>Frame Review</h2>
+
+                            <dl>
+
+                                <dt>Event</dt>
+                                <dd>External Tank debris</dd>
+
+                                <dt>Separation</dt>
+                                <dd>Approx. T+81.7 sec</dd>
+
+                                <dt>Impact</dt>
+                                <dd>Approx. T+81.9 sec</dd>
+
+                                <dt>Observed region</dt>
+                                <dd>Left wing area</dd>
+
+                                <dt>Damage visibility</dt>
+                                <dd class="warning-text">
+                                    Not resolved
+                                </dd>
+
+                            </dl>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="analysis-strip">
+
+                        <strong>IMAGE ANALYSIS NOTE</strong>
+
+                        <p>
+                            Debris is visible crossing the field
+                            of view and striking the orbiter.
+                            Available ascent imagery does not
+                            resolve the resulting condition of
+                            the wing.
+                        </p>
+
+                    </div>
+
+
+                    <div class="uncertainty-box">
+
+                        <span>WHAT THE IMAGE SHOWS</span>
+                        <strong>an impact</strong>
+
+                        <span>WHAT THE IMAGE DOES NOT SHOW</span>
+                        <strong>the resulting damage</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEBRIS -->
+
+            <div
+                class="window-body archive-page sts-page"
+                id="sts-page-debris"
+            >
+
+                <div class="debris-workspace">
+
+                    <div class="debris-title">
+
+                        <div>
+                            <span class="classification">
+                                ENGINEERING WORKING FILE
+                            </span>
+
+                            <h1>
+                                Debris Impact Assessment
+                            </h1>
+                        </div>
+
+                        <div class="revision-box">
+                            WORKING
+                        </div>
+
+                    </div>
+
+
+                    <div class="engineering-table">
+
+                        <div class="engineering-row">
+                            <span>Source</span>
+                            <strong>
+                                External Tank bipod ramp region
+                            </strong>
+                        </div>
+
+                        <div class="engineering-row">
+                            <span>Event</span>
+                            <strong>
+                                Foam debris impact
+                            </strong>
+                        </div>
+
+                        <div class="engineering-row">
+                            <span>Observed region</span>
+                            <strong>
+                                Left wing area
+                            </strong>
+                        </div>
+
+                        <div class="engineering-row">
+                            <span>Direct inspection</span>
+                            <strong class="warning-text">
+                                Not available
+                            </strong>
+                        </div>
+
+                        <div class="engineering-row">
+                            <span>Image resolution</span>
+                            <strong class="warning-text">
+                                Insufficient to determine damage
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="assessment-columns">
+
+                        <div class="assessment-card">
+
+                            <h2>Known</h2>
+
+                            <p>
+                                Foam separated during ascent.
+                            </p>
+
+                            <p>
+                                Debris struck the left wing area.
+                            </p>
+
+                            <p>
+                                The event is visible in launch
+                                imagery.
+                            </p>
+
+                        </div>
+
+
+                        <div class="assessment-card">
+
+                            <h2>Unknown</h2>
+
+                            <p>
+                                Exact impact location.
+                            </p>
+
+                            <p>
+                                Extent and type of damage.
+                            </p>
+
+                            <p>
+                                Condition beneath the visible
+                                surface.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="model-warning">
+
+                        <strong>MODEL LIMITATION</strong>
+
+                        <p>
+                            Assessment depends on assumptions
+                            concerning debris size, geometry,
+                            impact location and the applicability
+                            of existing test data.
+                        </p>
+
+                    </div>
+
+
+                    <div class="quiet-line">
+                        The model can answer only the question it was given.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="window-statusbar">
+
+                <span id="sts-object-count">
+                    4 object(s)
+                </span>
+
+                <span>My Computer</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ENGINEERING EXPLORER
+             ================================================= -->
+
+        <section
+            class="app-window explorer-window engineering-window"
+            id="window-engineering"
+            data-program="engineering"
+            aria-hidden="true"
+        >
+
+            <div class="window-titlebar">
+
+                <div class="window-title">
+                    <span class="tiny-folder"></span>
+                    <span id="engineering-title">
+                        Engineering
+                    </span>
+                </div>
+
+                <div class="window-controls">
+
+                    <button
+                        class="window-control minimize-window"
+                        type="button"
+                    >
+                        _
+                    </button>
+
+                    <button
+                        class="window-control maximize-window"
+                        type="button"
+                    >
+                        □
+                    </button>
+
+                    <button
+                        class="window-control close-window"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="window-menu">
+                <span>File</span>
+                <span>Edit</span>
+                <span>View</span>
+                <span>Favorites</span>
+                <span>Tools</span>
+                <span>Help</span>
+            </div>
+
+
+            <div class="window-toolbar">
+
+                <button
+                    id="engineering-back"
+                    type="button"
+                    class="toolbar-button"
+                    disabled
+                >
+                    ←
+                </button>
+
+                <button
+                    type="button"
+                    class="toolbar-button"
+                    disabled
+                >
+                    →
+                </button>
+
+                <div class="toolbar-divider"></div>
+
+                <span>Address</span>
+
+                <div
+                    class="address-bar"
+                    id="engineering-address"
+                >
+                    C:\Engineering
+                </div>
+
+            </div>
+
+
+            <!-- ENGINEERING ROOT -->
+
+            <div
+                class="window-body explorer-body engineering-page active-page"
+                id="engineering-page-root"
+            >
+
+                <aside class="explorer-sidebar">
+
+                    <div class="sidebar-heading">
+                        Engineering Tasks
+                    </div>
+
+                    <p>
+                        Review analysis files and unresolved
+                        technical questions.
+                    </p>
+
+
+                    <div class="sidebar-heading">
+                        Other Places
+                    </div>
+
+                    <button
+                        type="button"
+                        class="sidebar-link"
+                        data-open-program="sts107"
+                    >
+                        STS-107
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sidebar-link"
+                        data-open-program="calculator"
+                    >
+                        Calculator
+                    </button>
+
+                </aside>
+
+
+                <div class="explorer-files engineering-files">
+
+                    <button
+                        type="button"
+                        class="file-item engineering-folder"
+                        data-folder="team"
+                    >
+                        <span class="large-folder-icon"></span>
+
+                        <span class="file-name">
+                            Debris Team
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="file-item engineering-folder"
+                        data-folder="analysis"
+                    >
+                        <span class="large-folder-icon"></span>
+
+                        <span class="file-name">
+                            Analysis
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="file-item"
+                        id="impact-estimates-file"
+                    >
+                        <span class="excel-file-icon">
+                            X
+                        </span>
+
+                        <span class="file-name">
+                            Impact Estimates.xls
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="file-item"
+                        id="rcc-file"
+                    >
+                        <span class="text-file-icon">
+                            TXT
+                        </span>
+
+                        <span class="file-name">
+                            RCC Assessment.txt
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="file-item"
+                        id="questions-file"
+                    >
+                        <span class="text-file-icon">
+                            TXT
+                        </span>
+
+                        <span class="file-name">
+                            Open Questions.txt
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEBRIS TEAM -->
+
+            <div
+                class="window-body archive-page engineering-page"
+                id="engineering-page-team"
+            >
+
+                <div class="engineering-document">
+
+                    <div class="engineering-document-header">
+
+                        <span class="small-code">
+                            DAT
+                        </span>
+
+                        <div>
+                            <h1>Debris Assessment Team</h1>
+
+                            <p>
+                                Working status / STS-107
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-entry">
+
+                        <span class="timeline-date">
+                            JAN 21
+                        </span>
+
+                        <div>
+                            <strong>
+                                Formal team meeting
+                            </strong>
+
+                            <p>
+                                Debris event reviewed.
+                                Additional imagery requested to
+                                improve confidence in the
+                                assessment.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-entry">
+
+                        <span class="timeline-date">
+                            JAN 22–23
+                        </span>
+
+                        <div>
+                            <strong>
+                                Modeling continues
+                            </strong>
+
+                            <p>
+                                Existing damage-prediction tools
+                                and prior test information are
+                                used to estimate possible thermal
+                                protection system damage.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-entry">
+
+                        <span class="timeline-date">
+                            JAN 24
+                        </span>
+
+                        <div>
+                            <strong>
+                                Results briefed
+                            </strong>
+
+                            <p>
+                                Assessment results are presented
+                                to Mission Evaluation Room
+                                management.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="request-panel">
+
+                        <span>REQUESTED INFORMATION</span>
+
+                        <strong>
+                            Higher-resolution on-orbit imagery
+                        </strong>
+
+                        <p>
+                            Status: not available to team
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANALYSIS -->
+
+            <div
+                class="window-body archive-page engineering-page"
+                id="engineering-page-analysis"
+            >
+
+                <div class="engineering-document">
+
+                    <div class="engineering-document-header">
+
+                        <span class="small-code">
+                            MOD
+                        </span>
+
+                        <div>
+                            <h1>Impact Analysis</h1>
+
+                            <p>
+                                Working model assumptions
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="model-card">
+
+                        <div class="model-name">
+                            CRATER
+                        </div>
+
+                        <div class="model-description">
+
+                            <strong>
+                                Damage prediction model
+                            </strong>
+
+                            <p>
+                                Used during the mission to estimate
+                                potential tile damage from the
+                                debris impact.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="assumption-grid">
+
+                        <div>
+                            <span>INPUT</span>
+                            Debris dimensions
+                        </div>
+
+                        <div>
+                            <span>INPUT</span>
+                            Impact velocity
+                        </div>
+
+                        <div>
+                            <span>INPUT</span>
+                            Impact angle
+                        </div>
+
+                        <div>
+                            <span>INPUT</span>
+                            Material / target assumptions
+                        </div>
+
+                    </div>
+
+
+                    <div class="analysis-warning">
+
+                        <strong>
+                            APPLICABILITY WARNING
+                        </strong>
+
+                        <p>
+                            The available model was not designed
+                            specifically for an impact event of
+                            this character and scale.
+                        </p>
+
+                    </div>
+
+
+                    <div class="signal-surface">
+
+                        <div>
+                            EVENT
+                        </div>
+
+                        <span>→</span>
+
+                        <div>
+                            IMAGE
+                        </div>
+
+                        <span>→</span>
+
+                        <div>
+                            ESTIMATE
+                        </div>
+
+                        <span>→</span>
+
+                        <div>
+                            MODEL
+                        </div>
+
+                        <span>→</span>
+
+                        <div>
+                            RESULT
+                        </div>
+
+                    </div>
+
+
+                    <p class="quiet-analysis">
+                        Every arrow is an interpretation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="window-statusbar">
+
+                <span id="engineering-object-count">
+                    5 object(s)
+                </span>
+
+                <span>My Computer</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EXCEL / IMPACT ESTIMATES
+             ================================================= -->
+
+        <section
+            class="app-window excel-window"
+            id="window-excel"
+            data-program="excel"
+            aria-hidden="true"
+        >
+
+            <div class="window-titlebar excel-titlebar">
+
+                <div class="window-title">
+                    Microsoft Excel - Impact Estimates.xls
+                </div>
+
+                <div class="window-controls">
+
+                    <button
+                        class="window-control minimize-window"
+                        type="button"
+                    >
+                        _
+                    </button>
+
+                    <button
+                        class="window-control maximize-window"
+                        type="button"
+                    >
+                        □
+                    </button>
+
+                    <button
+                        class="window-control close-window"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="window-menu">
+                <span>File</span>
+                <span>Edit</span>
+                <span>View</span>
+                <span>Insert</span>
+                <span>Format</span>
+                <span>Tools</span>
+                <span>Data</span>
+                <span>Help</span>
+            </div>
+
+
+            <div class="excel-toolbar">
+                <button type="button" disabled>New</button>
+                <button type="button" disabled>Open</button>
+                <button type="button" disabled>Save</button>
+
+                <div class="toolbar-divider"></div>
+
+                <strong>Arial</strong>
+                <span>10</span>
+            </div>
+
+
+            <div class="formula-bar">
+
+                <div class="cell-reference">
+                    D6
+                </div>
+
+                <div class="formula-input">
+                    =ESTIMATE(B6,C6)
+                </div>
+
+            </div>
+
+
+            <div class="spreadsheet">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th class="row-corner"></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <th>1</th>
+                            <td class="sheet-heading" colspan="5">
+                                STS-107 DEBRIS IMPACT — WORKING ESTIMATES
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>2</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th>3</th>
+                            <td>Parameter</td>
+                            <td>Estimate</td>
+                            <td>Units</td>
+                            <td>Confidence</td>
+                            <td>Source</td>
+                        </tr>
+
+                        <tr>
+                            <th>4</th>
+                            <td>Debris type</td>
+                            <td>Foam</td>
+                            <td>—</td>
+                            <td>High</td>
+                            <td>Imagery</td>
+                        </tr>
+
+                        <tr>
+                            <th>5</th>
+                            <td>Impact region</td>
+                            <td>Left wing</td>
+                            <td>—</td>
+                            <td>Moderate</td>
+                            <td>Imagery</td>
+                        </tr>
+
+                        <tr>
+                            <th>6</th>
+                            <td>Damage</td>
+                            <td>Model dependent</td>
+                            <td>—</td>
+                            <td class="sheet-warning">
+                                LOW
+                            </td>
+                            <td>CRATER</td>
+                        </tr>
+
+                        <tr>
+                            <th>7</th>
+                            <td>Direct image</td>
+                            <td>Unavailable</td>
+                            <td>—</td>
+                            <td class="sheet-warning">
+                                —
+                            </td>
+                            <td>—</td>
+                        </tr>
+
+                        <tr>
+                            <th>8</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th>9</th>
+                            <td class="sheet-note" colspan="5">
+                                Working reconstruction for narrative interface —
+                                not a reproduction of an original NASA spreadsheet.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="sheet-tabs">
+
+                <button
+                    type="button"
+                    class="sheet-tab active-sheet"
+                >
+                    Impact
+                </button>
+
+                <button
+                    type="button"
+                    class="sheet-tab"
+                >
+                    Assumptions
+                </button>
+
+                <button
+                    type="button"
+                    class="sheet-tab"
+                >
+                    Notes
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SHARED NOTEPAD
+             ================================================= -->
+
+        <section
+            class="app-window notepad-window"
+            id="window-notes"
+            data-program="notes"
+            aria-hidden="true"
+        >
+
+            <div class="window-titlebar">
+
+                <div
+                    class="window-title"
+                    id="notepad-title"
+                >
+                    Notepad
+                </div>
+
+                <div class="window-controls">
+
+                    <button
+                        class="window-control minimize-window"
+                        type="button"
+                    >
+                        _
+                    </button>
+
+                    <button
+                        class="window-control maximize-window"
+                        type="button"
+                    >
+                        □
+                    </button>
+
+                    <button
+                        class="window-control close-window"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="window-menu">
+                <span>File</span>
+                <span>Edit</span>
+                <span>Search</span>
+                <span>Help</span>
+            </div>
+
+
+            <div class="notepad-document">
+                <pre id="notepad-content"></pre>
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAIL
+             ================================================= -->
+
+        <section
+            class="app-window mail-window"
+            id="window-mail"
+            data-program="mail"
+            aria-hidden="true"
+        >
+            <div class="window-titlebar">
+                <div class="window-title">Outlook Express - STS-107 Engineering</div>
+                <div class="window-controls">
+                    <button class="window-control minimize-window" type="button">_</button>
+                    <button class="window-control maximize-window" type="button">□</button>
+                    <button class="window-control close-window" type="button">×</button>
+                </div>
+            </div>
+
+            <div class="window-menu">
+                <span>File</span><span>Edit</span><span>View</span>
+                <span>Tools</span><span>Message</span><span>Help</span>
+            </div>
+
+            <div class="mail-toolbar">
+                <button type="button" disabled>New Mail</button>
+                <button type="button" disabled>Reply</button>
+                <button type="button" disabled>Forward</button>
+                <button type="button" disabled>Print</button>
+            </div>
+
+            <div class="mail-layout">
+                <aside class="mail-folders">
+                    <div class="mail-account">Local Folders</div>
+                    <button class="mail-folder active-mail-folder" data-mail-folder="inbox" type="button">📥 Inbox <strong>(2)</strong></button>
+                    <button class="mail-folder" data-mail-folder="drafts" type="button">📝 Drafts <strong>(1)</strong></button>
+                    <button class="mail-folder" data-mail-folder="sent" type="button">📤 Sent Items</button>
+                    <button class="mail-folder" data-mail-folder="deleted" type="button">🗑 Deleted Items</button>
+                </aside>
+
+                <div class="mail-main">
+                    <div class="mail-list" id="mail-view-inbox">
+                        <button class="mail-message unread-mail" data-message="ascent" type="button">
+                            <span>Imagery Analysis</span><strong>STS-107 Ascent Imagery Review</strong><time>Jan 17</time>
+                        </button>
+                        <button class="mail-message unread-mail" data-message="imagery-request" type="button">
+                            <span>Debris Assessment Team</span><strong>Request for Additional Imagery</strong><time>Jan 21</time>
+                        </button>
+                        <button class="mail-message" data-message="imagery-reply" type="button">
+                            <span>Mission Operations</span><strong>Re: Imagery Request</strong><time>Jan 22</time>
+                        </button>
+                        <button class="mail-message" data-message="status" type="button">
+                            <span>Debris Assessment Team</span><strong>Debris Assessment Status</strong><time>Jan 23</time>
+                        </button>
+                        <button class="mail-message" data-message="crew" type="button">
+                            <span>Mission Operations</span><strong>Crew Notification — Debris Event</strong><time>Jan 23</time>
+                        </button>
+                        <button class="mail-message" data-message="briefing" type="button">
+                            <span>Engineering</span><strong>Debris Assessment Briefing</strong><time>Jan 24</time>
+                        </button>
+                    </div>
+
+                    <div class="mail-list mail-folder-view" id="mail-view-drafts">
+                        <button class="mail-message draft-message" data-message="draft-imagery" type="button">
+                            <span>Draft</span><strong>Re: Imagery</strong><time>—</time>
+                        </button>
+                    </div>
+                    <div class="mail-list mail-folder-view" id="mail-view-sent">
+                        <div class="mail-empty">No messages to display.</div>
+                    </div>
+                    <div class="mail-list mail-folder-view" id="mail-view-deleted">
+                        <div class="mail-empty">No messages to display.</div>
+                    </div>
+
+                    <article id="mail-preview" class="mail-preview">
+                        <div class="mail-preview-empty">Select a message to read it.</div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="window-statusbar">
+                <span id="mail-status-text">6 message(s)</span>
+                <span>Working reconstruction</span>
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             CALCULATOR
+             ================================================= -->
+
+        <section
+            class="app-window calculator-window"
+            id="window-calculator"
+            data-program="calculator"
+            aria-hidden="true"
+        >
+            <div class="window-titlebar">
+                <div class="window-title">Calculator</div>
+                <div class="window-controls">
+                    <button class="window-control minimize-window" type="button">_</button>
+                    <button class="window-control close-window" type="button">×</button>
+                </div>
+            </div>
+
+            <div class="window-menu">
+                <span>Edit</span><span>View</span><span>Help</span>
+            </div>
+
+            <div class="calculator-body">
+                <div class="calculator-display-wrap">
+                    <span id="calculator-memory-indicator"></span>
+                    <input id="calculator-display" type="text" value="0" readonly aria-label="Calculator display">
+                </div>
+
+                <div class="calculator-keypad">
+                    <button class="calc-key memory-key" data-calc-action="memory-clear" type="button">MC</button>
+                    <button class="calc-key memory-key" data-calc-action="memory-recall" type="button">MR</button>
+                    <button class="calc-key memory-key" data-calc-action="memory-store" type="button">MS</button>
+                    <button class="calc-key memory-key" data-calc-action="memory-add" type="button">M+</button>
+                    <button class="calc-key wide-key" data-calc-action="backspace" type="button">Backspace</button>
+
+                    <button class="calc-key" data-calc-value="7" type="button">7</button>
+                    <button class="calc-key" data-calc-value="8" type="button">8</button>
+                    <button class="calc-key" data-calc-value="9" type="button">9</button>
+                    <button class="calc-key operator-key" data-calc-operator="/" type="button">/</button>
+                    <button class="calc-key action-key" data-calc-action="sqrt" type="button">sqrt</button>
+
+                    <button class="calc-key" data-calc-value="4" type="button">4</button>
+                    <button class="calc-key" data-calc-value="5" type="button">5</button>
+                    <button class="calc-key" data-calc-value="6" type="button">6</button>
+                    <button class="calc-key operator-key" data-calc-operator="*" type="button">*</button>
+                    <button class="calc-key action-key" data-calc-action="sign" type="button">+/-</button>
+
+                    <button class="calc-key" data-calc-value="1" type="button">1</button>
+                    <button class="calc-key" data-calc-value="2" type="button">2</button>
+                    <button class="calc-key" data-calc-value="3" type="button">3</button>
+                    <button class="calc-key operator-key" data-calc-operator="-" type="button">-</button>
+                    <button class="calc-key action-key" data-calc-action="clear-entry" type="button">CE</button>
+
+                    <button class="calc-key" data-calc-value="0" type="button">0</button>
+                    <button class="calc-key" data-calc-value="." type="button">.</button>
+                    <button class="calc-key equals-key" data-calc-action="equals" type="button">=</button>
+                    <button class="calc-key operator-key" data-calc-operator="+" type="button">+</button>
+                    <button class="calc-key action-key" data-calc-action="clear" type="button">C</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             POWERPOINT WARNING SEQUENCE
+             ================================================= -->
+
+        <section
+            class="app-window powerpoint-warning-window"
+            id="window-powerpoint-warning"
+            data-program="powerpoint"
+            aria-hidden="true"
+        >
+            <div class="window-titlebar powerpoint-titlebar">
+                <div class="window-title">Microsoft PowerPoint</div>
+                <div class="window-controls">
+                    <button class="window-control close-window" type="button">×</button>
+                </div>
+            </div>
+
+            <div class="powerpoint-warning-body">
+                <div class="powerpoint-warning-icon">P</div>
+
+                <div class="powerpoint-warning-copy">
+                    <h2 id="powerpoint-warning-heading">
+                        You are about to open Debris Assessment.ppt.
+                    </h2>
+
+                    <p id="powerpoint-warning-text">
+                        Supporting engineering files are available on this workstation.
+                    </p>
+
+                    <p class="powerpoint-warning-small" id="powerpoint-warning-small">
+                        Review the underlying material before opening the presentation?
+                    </p>
+                </div>
+            </div>
+
+            <div class="powerpoint-warning-actions">
+                <button id="powerpoint-review-button" type="button">
+                    Review Engineering
+                </button>
+
+                <button id="powerpoint-open-button" type="button">
+                    Open Anyway
+                </button>
+            </div>
+        </section>
+
+        <!-- =================================================
+             GENERIC PLACEHOLDER
+             ================================================= -->
+
+        <section
+            class="app-window placeholder-window"
+            id="generic-window"
+            aria-hidden="true"
+        >
+
+            <div class="window-titlebar">
+
+                <div
+                    class="window-title"
+                    id="generic-window-title"
+                >
+                    Application
+                </div>
+
+                <div class="window-controls">
+
+                    <button
+                        class="window-control minimize-window"
+                        type="button"
+                    >
+                        _
+                    </button>
+
+                    <button
+                        class="window-control close-window"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="generic-content">
+
+                <div
+                    class="generic-icon"
+                    id="generic-icon"
+                >
+                    ?
+                </div>
+
+                <p id="generic-message">
+                    This application is not available yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TASKBAR
+             ================================================= -->
+
+        <div id="taskbar">
+
+            <button
+                id="start-button"
+                type="button"
+            >
+                <span class="windows-mark">▣</span>
+                Start
+            </button>
+
+            <div id="taskbar-programs"></div>
+
+            <div id="system-tray">
+                <span id="tray-status">▪</span>
+                <span id="desktop-clock">8:12 AM</span>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

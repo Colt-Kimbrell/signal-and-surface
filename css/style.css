@@ -1,0 +1,2454 @@
+/* =========================================================
+   POWERPOINT — SIGNAL AND SURFACE
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+button {
+    font: inherit;
+}
+
+#experience {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+
+/* =========================================================
+   WORKSTATION
+   ========================================================= */
+
+#workstation {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #000;
+
+    transition:
+        filter 1s ease,
+        opacity 1.2s ease,
+        transform 2.2s ease;
+}
+
+#desk-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
+#notepad-hotspot {
+    position: absolute;
+
+    left: 44%;
+    top: 82%;
+
+    width: 31%;
+    height: 17%;
+
+    border: none;
+    border-radius: 45%;
+
+    cursor: pointer;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,238,175,.48),
+            rgba(255,215,120,.30) 35%,
+            rgba(255,190,80,.12) 60%,
+            transparent 78%
+        );
+
+    box-shadow:
+        0 0 25px rgba(255,220,140,.30),
+        0 0 55px rgba(255,205,100,.20);
+
+    animation: paperPulse 3s ease-in-out infinite;
+}
+
+@keyframes paperPulse {
+    0%,
+    100% {
+        opacity: .55;
+        filter: brightness(.9);
+    }
+
+    50% {
+        opacity: 1;
+        filter: brightness(1.25);
+    }
+}
+
+#notepad-hotspot.read {
+    animation: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#computer-hotspot {
+    position: absolute;
+
+    left: 49%;
+    top: 15%;
+
+    width: 34%;
+    height: 45%;
+
+    border: none;
+    background: transparent;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+#computer-hotspot.active {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(110,170,255,.08),
+            transparent 75%
+        );
+
+    animation: monitorPulse 4s ease-in-out infinite;
+}
+
+@keyframes monitorPulse {
+    50% {
+        filter: brightness(1.18);
+    }
+}
+
+#workstation.dimmed {
+    filter: brightness(.32) blur(2px);
+}
+
+#workstation.entering-computer {
+    transform: scale(1.16);
+    filter: brightness(.2) blur(3px);
+    opacity: 0;
+}
+
+
+/* =========================================================
+   POEM
+   ========================================================= */
+
+#poem-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(0,0,0,.82);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+#poem-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#poem-paper {
+    position: relative;
+
+    width: min(620px,90vw);
+    max-height: 88vh;
+
+    padding: 65px 80px 70px;
+
+    overflow-y: auto;
+
+    color: #26221b;
+
+    background:
+        linear-gradient(
+            100deg,
+            #d8cfb8,
+            #eee5ce 45%,
+            #d8cfb8
+        );
+
+    border: 1px solid #918773;
+
+    box-shadow:
+        0 20px 80px rgba(0,0,0,.85);
+
+    transform: translateY(30px) scale(.92);
+
+    transition: transform 1s ease;
+}
+
+#poem-overlay.visible #poem-paper {
+    transform: translateY(0) scale(1);
+}
+
+.poem-content {
+    font-size: 21px;
+    line-height: 1.65;
+}
+
+.poem-content p {
+    margin: 0 0 28px;
+}
+
+.final-line {
+    margin-top: 40px;
+
+    font-family: "Courier New", monospace;
+    font-size: 30px;
+    font-weight: bold;
+
+    letter-spacing: .15em;
+}
+
+#close-poem {
+    position: absolute;
+
+    right: 20px;
+    top: 15px;
+
+    border: none;
+    background: transparent;
+
+    color: #50493c;
+
+    font-size: 32px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CRT
+   ========================================================= */
+
+#crt-transition {
+    position: absolute;
+    inset: 0;
+    z-index: 40;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+#crt-transition.active {
+    visibility: visible;
+    animation: crtTransition 1.8s ease forwards;
+}
+
+.crt-flash {
+    width: 100%;
+    height: 4px;
+
+    background: #d2e6ff;
+
+    box-shadow: 0 0 60px #78b4ff;
+
+    transform: scaleX(0);
+}
+
+#crt-transition.active .crt-flash {
+    animation: crtLine 1.5s ease forwards;
+}
+
+@keyframes crtTransition {
+    20% {
+        opacity: .3;
+    }
+
+    55%,
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes crtLine {
+    35% {
+        transform: scaleX(1);
+    }
+
+    60% {
+        transform: scaleX(1) scaleY(100);
+    }
+
+    100% {
+        transform: scaleX(1) scaleY(300);
+    }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+#desktop {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+
+    display: none;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #006a78,
+            #007f8f 45%,
+            #005965
+        );
+
+    color: #fff;
+
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
+#desktop.visible {
+    display: block;
+}
+
+#desktop::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 1000;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.025) 0,
+            rgba(255,255,255,.025) 1px,
+            rgba(0,0,0,.045) 2px,
+            rgba(0,0,0,.045) 4px
+        );
+}
+
+#desktop::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 999;
+
+    pointer-events: none;
+
+    box-shadow:
+        inset 0 0 90px rgba(0,0,0,.45);
+}
+
+
+/* =========================================================
+   DESKTOP ICONS
+   ========================================================= */
+
+#desktop-icons {
+    position: absolute;
+
+    top: 25px;
+    left: 22px;
+
+    display: grid;
+    grid-template-columns: 110px;
+
+    gap: 18px;
+
+    z-index: 5;
+}
+
+.desktop-icon {
+    width: 100px;
+    min-height: 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 4px;
+
+    border: 1px solid transparent;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+
+    text-shadow: 1px 1px 2px #000;
+
+    cursor: pointer;
+}
+
+.desktop-icon:hover,
+.desktop-icon:focus {
+    background: rgba(0,70,150,.35);
+    border: 1px dotted #fff;
+    outline: none;
+}
+
+.icon-label {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.icon-image {
+    position: relative;
+
+    display: block;
+
+    width: 44px;
+    height: 44px;
+}
+
+.folder-icon::before {
+    content: "";
+
+    position: absolute;
+
+    left: 3px;
+    top: 10px;
+
+    width: 38px;
+    height: 28px;
+
+    background: linear-gradient(#ffd95c,#d89c18);
+
+    border: 1px solid #76540c;
+}
+
+.folder-icon::after {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    top: 5px;
+
+    width: 19px;
+    height: 10px;
+
+    background: #e6b52e;
+
+    border: 1px solid #76540c;
+}
+
+.mail-icon {
+    height: 34px;
+    margin-top: 4px;
+
+    background: #eee;
+
+    border: 2px solid #555;
+}
+
+.mail-icon::before {
+    content: "✉";
+
+    position: absolute;
+    inset: 3px;
+
+    color: #333;
+
+    font-size: 24px;
+
+    text-shadow: none;
+}
+
+.calculator-icon {
+    width: 34px;
+    height: 42px;
+
+    background: linear-gradient(#ddd,#999);
+
+    border: 2px solid #444;
+}
+
+.calculator-icon::before {
+    content: "123";
+
+    position: absolute;
+
+    left: 4px;
+    top: 4px;
+
+    padding: 2px;
+
+    background: #b9c7a4;
+
+    color: #1b2417;
+
+    font: 8px monospace;
+
+    text-shadow: none;
+}
+
+.calculator-icon::after {
+    content: "•••\A•••\A•••";
+
+    position: absolute;
+
+    left: 7px;
+    top: 17px;
+
+    white-space: pre;
+
+    color: #333;
+
+    font-size: 9px;
+    line-height: 6px;
+
+    text-shadow: none;
+}
+
+.powerpoint-icon {
+    width: 38px;
+    height: 44px;
+
+    background: #f3f3f3;
+
+    border: 1px solid #555;
+}
+
+.powerpoint-icon::before {
+    content: "P";
+
+    position: absolute;
+
+    left: -4px;
+    top: 10px;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #c64a2d;
+
+    color: #fff;
+
+    font: bold 20px Arial;
+
+    text-shadow: none;
+}
+
+#desktop-status {
+    position: absolute;
+
+    right: 28px;
+    top: 22px;
+
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    font: 11px "Courier New", monospace;
+
+    opacity: .55;
+}
+
+
+/* =========================================================
+   WINDOWS
+   ========================================================= */
+
+.app-window {
+    position: absolute;
+
+    left: 18%;
+    top: 10%;
+
+    width: min(720px,72vw);
+    height: min(520px,72vh);
+
+    display: none;
+    flex-direction: column;
+
+    color: #000;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+
+    box-shadow: 2px 2px 8px rgba(0,0,0,.55);
+
+    z-index: 100;
+}
+
+.app-window.open {
+    display: flex;
+}
+
+.app-window.minimized {
+    display: none;
+}
+
+.app-window.maximized {
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 100% !important;
+    height: calc(100% - 38px) !important;
+}
+
+.window-titlebar {
+    min-height: 28px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 3px 3px 3px 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #000080,
+            #1084d0
+        );
+
+    color: #fff;
+
+    font: bold 13px Tahoma, Arial, sans-serif;
+
+    user-select: none;
+    cursor: move;
+}
+
+.window-title {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.window-control {
+    width: 23px;
+    height: 21px;
+
+    padding: 0;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #444;
+    border-bottom: 2px solid #444;
+
+    background: #c0c0c0;
+
+    color: #000;
+
+    font: bold 14px Arial;
+
+    cursor: pointer;
+}
+
+.tiny-folder {
+    position: relative;
+
+    width: 16px;
+    height: 12px;
+
+    background: #e7b82e;
+
+    border: 1px solid #6e5200;
+}
+
+.window-menu {
+    min-height: 27px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 3px 10px;
+
+    border-bottom: 1px solid #777;
+
+    font: 12px Tahoma, Arial, sans-serif;
+}
+
+.window-toolbar {
+    min-height: 36px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 4px 7px;
+
+    border-bottom: 1px solid #777;
+
+    font: 11px Tahoma, Arial, sans-serif;
+}
+
+.toolbar-button {
+    width: 27px;
+    height: 25px;
+
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #666;
+    border-bottom: 1px solid #666;
+
+    background: #c0c0c0;
+
+    cursor: pointer;
+}
+
+.toolbar-button:disabled {
+    color: #888;
+    cursor: default;
+}
+
+.toolbar-divider {
+    width: 1px;
+    height: 24px;
+
+    background: #777;
+}
+
+.address-bar {
+    flex: 1;
+
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 7px;
+
+    background: #fff;
+
+    border-top: 2px solid #777;
+    border-left: 2px solid #777;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   EXPLORER
+   ========================================================= */
+
+.window-body {
+    flex: 1;
+    min-height: 0;
+}
+
+.sts-page,
+.engineering-page {
+    display: none;
+}
+
+.sts-page.active-page,
+.engineering-page.active-page {
+    display: flex;
+}
+
+.archive-page.active-page {
+    display: block;
+}
+
+.explorer-body {
+    background: #fff;
+}
+
+.explorer-sidebar {
+    width: 180px;
+    flex-shrink: 0;
+
+    padding: 14px 12px;
+
+    background: linear-gradient(#d6e5fa,#eef4fc);
+
+    border-right: 1px solid #9daec5;
+
+    color: #333;
+
+    font: 11px Tahoma,Arial,sans-serif;
+}
+
+.sidebar-heading {
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+
+    border-bottom: 1px solid #9daec5;
+
+    color: #164a8a;
+
+    font-weight: bold;
+}
+
+.explorer-sidebar p {
+    margin: 0 0 24px;
+    line-height: 1.4;
+}
+
+.sidebar-link {
+    display: block;
+
+    margin-bottom: 6px;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #164a8a;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.explorer-files {
+    flex: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(105px,1fr));
+
+    align-content: start;
+
+    gap: 22px 12px;
+
+    padding: 25px 20px;
+
+    overflow: auto;
+
+    background: #fff;
+}
+
+.file-item {
+    min-height: 85px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 5px;
+
+    border: 1px solid transparent;
+
+    background: transparent;
+
+    color: #000;
+
+    font: 11px Tahoma,Arial,sans-serif;
+
+    cursor: pointer;
+}
+
+.file-item:hover,
+.file-item:focus {
+    border: 1px dotted #000080;
+
+    background: rgba(30,80,170,.1);
+
+    outline: none;
+}
+
+.file-name {
+    margin-top: 7px;
+    text-align: center;
+}
+
+.large-folder-icon {
+    position: relative;
+
+    display: block;
+
+    width: 48px;
+    height: 37px;
+
+    margin-top: 5px;
+
+    background: linear-gradient(#ffe16a,#dca61f);
+
+    border: 1px solid #76540c;
+}
+
+.large-folder-icon::before {
+    content: "";
+
+    position: absolute;
+
+    left: 2px;
+    top: -9px;
+
+    width: 24px;
+    height: 10px;
+
+    background: #e7b52b;
+
+    border: 1px solid #76540c;
+}
+
+.text-file-icon {
+    width: 39px;
+    height: 48px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    padding-bottom: 5px;
+
+    background: #fff;
+
+    border: 1px solid #777;
+
+    color: #000080;
+
+    font: bold 10px "Courier New",monospace;
+}
+
+.excel-file-icon {
+    width: 42px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #0b7540;
+
+    border: 2px solid #07502c;
+
+    color: #fff;
+
+    font: bold 25px Arial;
+}
+
+.window-statusbar {
+    min-height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 3px 7px;
+
+    border-top: 1px solid #777;
+
+    color: #333;
+
+    font: 10px Tahoma,Arial,sans-serif;
+}
+
+
+/* =========================================================
+   STS ARCHIVE
+   ========================================================= */
+
+.archive-page {
+    overflow: auto;
+
+    background: #f5f5f2;
+
+    color: #111;
+
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.archive-document,
+.imagery-workspace,
+.debris-workspace,
+.engineering-document {
+    min-height: 100%;
+    padding: 30px;
+}
+
+.document-header,
+.engineering-document-header {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+
+    border-bottom: 2px solid #555;
+}
+
+.document-code,
+.small-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #172b46;
+
+    color: #fff;
+
+    font-family: "Courier New",monospace;
+    font-weight: bold;
+}
+
+.document-code {
+    width: 72px;
+    height: 72px;
+}
+
+.small-code {
+    width: 58px;
+    height: 58px;
+}
+
+.document-header h1,
+.engineering-document-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.document-subtitle,
+.engineering-document-header p {
+    margin: 4px 0 0;
+    color: #666;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 8px;
+
+    margin-bottom: 28px;
+}
+
+.data-box {
+    padding: 10px;
+
+    border: 1px solid #aaa;
+
+    background: #fff;
+}
+
+.data-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #666;
+
+    font-size: 9px;
+}
+
+.archive-document h2 {
+    margin-top: 25px;
+
+    padding-bottom: 4px;
+
+    border-bottom: 1px solid #aaa;
+
+    font-size: 15px;
+}
+
+.archive-document p {
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.crew-list {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 7px;
+}
+
+.crew-list div {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 6px 8px;
+
+    background: #fff;
+
+    border-bottom: 1px solid #ccc;
+
+    font-size: 11px;
+}
+
+.crew-list span {
+    color: #666;
+}
+
+
+/* imagery */
+
+.imagery-heading {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+
+    border-bottom: 2px solid #333;
+}
+
+.imagery-heading strong,
+.imagery-heading span {
+    display: block;
+}
+
+.imagery-heading span {
+    margin-top: 3px;
+
+    color: #555;
+
+    font-size: 11px;
+}
+
+.imagery-status {
+    padding: 5px 9px;
+
+    border: 1px solid #555;
+
+    font: 10px "Courier New",monospace;
+}
+
+.image-review-panel {
+    display: grid;
+    grid-template-columns: 1.5fr .7fr;
+
+    gap: 18px;
+}
+
+.fake-launch-frame {
+    position: relative;
+
+    min-height: 250px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 45% 55%,
+            #777,
+            #242424 42%,
+            #080808 75%
+        );
+
+    border: 7px solid #222;
+}
+
+.frame-crosshair {
+    position: absolute;
+    background: rgba(255,255,255,.18);
+}
+
+.frame-crosshair.horizontal {
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+}
+
+.frame-crosshair.vertical {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+}
+
+.orbiter-shape {
+    position: absolute;
+
+    left: 45%;
+    top: 48%;
+
+    width: 120px;
+    height: 100px;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-18deg);
+}
+
+.orbiter-body {
+    position: absolute;
+
+    left: 53px;
+    top: 4px;
+
+    width: 17px;
+    height: 90px;
+
+    background: #bbb;
+
+    border-radius: 50% 50% 15% 15%;
+}
+
+.orbiter-wing {
+    position: absolute;
+
+    top: 43px;
+
+    width: 62px;
+    height: 27px;
+
+    background: #aaa;
+}
+
+.left-wing {
+    left: 5px;
+    clip-path: polygon(100% 0,100% 100%,0 100%);
+}
+
+.right-wing {
+    right: 0;
+    clip-path: polygon(0 0,100% 100%,0 100%);
+}
+
+.foam-track {
+    position: absolute;
+
+    left: 29%;
+    top: 38%;
+
+    width: 115px;
+    height: 2px;
+
+    background: rgba(255,255,255,.65);
+
+    transform: rotate(20deg);
+}
+
+.frame-label {
+    position: absolute;
+
+    color: #ddd;
+
+    font: 10px "Courier New",monospace;
+}
+
+.frame-label-top {
+    left: 8px;
+    top: 8px;
+}
+
+.frame-label-bottom {
+    right: 8px;
+    bottom: 8px;
+}
+
+.image-metadata {
+    padding: 16px;
+
+    background: #e4e4df;
+
+    border: 1px solid #aaa;
+}
+
+.image-metadata h2 {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.image-metadata dt {
+    margin-top: 10px;
+
+    color: #666;
+
+    font-size: 9px;
+}
+
+.image-metadata dd {
+    margin: 2px 0 0;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.warning-text {
+    color: #8c260e;
+}
+
+.analysis-strip,
+.model-warning,
+.analysis-warning {
+    margin-top: 18px;
+
+    padding: 13px 15px;
+
+    border-left: 5px solid #777;
+
+    background: #e8e8e3;
+}
+
+.analysis-strip p,
+.model-warning p,
+.analysis-warning p {
+    margin-bottom: 0;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.uncertainty-box {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    gap: 6px 18px;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: #1e1e1e;
+
+    color: #eee;
+
+    font-family: "Courier New",monospace;
+}
+
+.uncertainty-box span {
+    color: #aaa;
+    font-size: 9px;
+}
+
+.uncertainty-box strong {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+
+/* debris */
+
+.debris-title {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 15px;
+
+    border-bottom: 2px solid #333;
+}
+
+.classification {
+    color: #666;
+
+    font: 9px "Courier New",monospace;
+
+    letter-spacing: .1em;
+}
+
+.debris-title h1 {
+    margin: 5px 0 0;
+    font-size: 23px;
+}
+
+.revision-box {
+    padding: 6px 9px;
+
+    border: 2px solid #8c260e;
+
+    color: #8c260e;
+
+    font: bold 10px "Courier New",monospace;
+}
+
+.engineering-table {
+    margin-top: 20px;
+
+    border: 1px solid #999;
+}
+
+.engineering-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+
+    border-bottom: 1px solid #ccc;
+
+    background: #fff;
+}
+
+.engineering-row span,
+.engineering-row strong {
+    padding: 8px 10px;
+    font-size: 11px;
+}
+
+.engineering-row span {
+    background: #e5e5e0;
+    color: #555;
+}
+
+.assessment-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+.assessment-card {
+    padding: 14px;
+
+    background: #fff;
+
+    border: 1px solid #aaa;
+
+    font-size: 11px;
+}
+
+.assessment-card h2 {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.quiet-line {
+    margin-top: 30px;
+    padding-top: 15px;
+
+    border-top: 1px solid #aaa;
+
+    color: #555;
+
+    font-family: Georgia,serif;
+    font-style: italic;
+}
+
+
+/* =========================================================
+   ENGINEERING
+   ========================================================= */
+
+.engineering-window {
+    left: 23%;
+    top: 12%;
+}
+
+.engineering-files {
+    grid-template-columns:
+        repeat(auto-fill,minmax(115px,1fr));
+}
+
+.timeline-entry {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #bbb;
+}
+
+.timeline-date {
+    color: #555;
+
+    font: bold 11px "Courier New",monospace;
+}
+
+.timeline-entry strong {
+    font-size: 13px;
+}
+
+.timeline-entry p {
+    margin: 5px 0 0;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.request-panel {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: 1px solid #999;
+
+    background: #fff;
+}
+
+.request-panel span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #666;
+
+    font-size: 9px;
+    letter-spacing: .08em;
+}
+
+.request-panel strong {
+    display: block;
+    font-size: 14px;
+}
+
+.request-panel p {
+    margin-bottom: 0;
+
+    color: #8c260e;
+
+    font: 11px "Courier New",monospace;
+}
+
+.model-card {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+
+    border: 1px solid #999;
+
+    background: #fff;
+}
+
+.model-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px 10px;
+
+    background: #263b52;
+
+    color: #fff;
+
+    font: bold 19px "Courier New",monospace;
+
+    letter-spacing: .1em;
+}
+
+.model-description {
+    padding: 18px;
+}
+
+.model-description p {
+    margin-bottom: 0;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.assumption-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+.assumption-grid div {
+    padding: 12px;
+
+    border: 1px solid #aaa;
+
+    background: #fff;
+
+    font-size: 11px;
+}
+
+.assumption-grid span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #777;
+
+    font-size: 8px;
+}
+
+.analysis-warning {
+    border-left-color: #8c260e;
+}
+
+.signal-surface {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+.signal-surface div {
+    padding: 8px 10px;
+
+    border: 1px solid #777;
+
+    background: #fff;
+
+    font: 10px "Courier New",monospace;
+}
+
+.signal-surface span {
+    color: #777;
+}
+
+.quiet-analysis {
+    margin-top: 15px;
+
+    text-align: center;
+
+    color: #666;
+
+    font-family: Georgia,serif;
+    font-style: italic;
+}
+
+
+/* =========================================================
+   EXCEL
+   ========================================================= */
+
+.excel-window {
+    left: 25%;
+    top: 14%;
+
+    width: min(760px,75vw);
+    height: min(500px,70vh);
+}
+
+.excel-titlebar {
+    background:
+        linear-gradient(
+            90deg,
+            #174f32,
+            #288a57
+        );
+}
+
+.excel-toolbar {
+    min-height: 34px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 4px 7px;
+
+    border-bottom: 1px solid #777;
+
+    font: 10px Tahoma,Arial,sans-serif;
+}
+
+.excel-toolbar button {
+    font-size: 10px;
+}
+
+.formula-bar {
+    min-height: 28px;
+
+    display: flex;
+
+    background: #ddd;
+
+    border-bottom: 1px solid #777;
+}
+
+.cell-reference {
+    width: 65px;
+
+    padding: 6px;
+
+    border-right: 1px solid #777;
+
+    background: #fff;
+
+    font: 11px Arial;
+}
+
+.formula-input {
+    flex: 1;
+
+    padding: 6px;
+
+    background: #fff;
+
+    font: 11px Arial;
+}
+
+.spreadsheet {
+    flex: 1;
+
+    overflow: auto;
+
+    background: #fff;
+}
+
+.spreadsheet table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+
+    font: 11px Arial;
+}
+
+.spreadsheet th,
+.spreadsheet td {
+    height: 26px;
+
+    padding: 4px 6px;
+
+    border: 1px solid #bbb;
+
+    overflow: hidden;
+}
+
+.spreadsheet thead th,
+.spreadsheet tbody th {
+    background: #ddd;
+
+    text-align: center;
+
+    font-weight: normal;
+}
+
+.spreadsheet tbody th {
+    width: 32px;
+}
+
+.sheet-heading {
+    background: #e4eee6;
+
+    font-weight: bold;
+}
+
+.sheet-warning {
+    background: #fff1cf;
+
+    color: #8c260e;
+
+    font-weight: bold;
+}
+
+.sheet-note {
+    color: #666;
+
+    font-size: 9px;
+    font-style: italic;
+}
+
+.sheet-tabs {
+    height: 30px;
+
+    display: flex;
+    align-items: flex-end;
+
+    gap: 2px;
+
+    padding-left: 40px;
+
+    background: #c0c0c0;
+
+    border-top: 1px solid #777;
+}
+
+.sheet-tab {
+    min-width: 90px;
+
+    padding: 5px 10px;
+
+    border: 1px solid #777;
+
+    background: #bbb;
+
+    font-size: 10px;
+}
+
+.sheet-tab.active-sheet {
+    background: #fff;
+    border-bottom-color: #fff;
+}
+
+
+/* =========================================================
+   NOTEPAD
+   ========================================================= */
+
+.notepad-window {
+    left: 30%;
+    top: 15%;
+
+    width: min(620px,65vw);
+    height: min(520px,70vh);
+}
+
+.notepad-document {
+    flex: 1;
+
+    overflow: auto;
+
+    padding: 7px;
+
+    background: #fff;
+
+    color: #000;
+}
+
+.notepad-document pre {
+    margin: 0;
+
+    white-space: pre-wrap;
+
+    font: 12px/1.45 "Courier New",monospace;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.placeholder-window {
+    left: 31%;
+    top: 22%;
+
+    width: 390px;
+    height: 230px;
+}
+
+.generic-content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    padding: 25px;
+
+    background: #eee;
+
+    font: 12px Tahoma,Arial,sans-serif;
+
+    text-align: center;
+}
+
+.generic-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #555;
+
+    background: #fff;
+
+    color: #000080;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   TASKBAR
+   ========================================================= */
+
+#taskbar {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 3px;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid #fff;
+
+    color: #000;
+
+    z-index: 900;
+}
+
+#start-button {
+    height: 30px;
+
+    padding: 2px 10px;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+
+    background: #c0c0c0;
+
+    font: bold 13px Tahoma,Arial,sans-serif;
+
+    cursor: pointer;
+}
+
+.windows-mark {
+    color: #164da0;
+}
+
+#taskbar-programs {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+
+    gap: 4px;
+
+    padding: 0 6px;
+}
+
+.taskbar-program {
+    width: min(180px,22vw);
+    height: 29px;
+
+    overflow: hidden;
+
+    padding: 2px 8px;
+
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+
+    background: #c0c0c0;
+
+    font: 11px Tahoma,Arial,sans-serif;
+
+    text-align: left;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    cursor: pointer;
+}
+
+.taskbar-program.active {
+    border-top: 2px solid #555;
+    border-left: 2px solid #555;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+
+    background: #d3d3d3;
+}
+
+#system-tray {
+    height: 29px;
+    min-width: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    padding: 0 9px;
+
+    border-top: 2px solid #777;
+    border-left: 2px solid #777;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+
+    font: 12px Tahoma,Arial,sans-serif;
+}
+
+#tray-status {
+    color: #2464aa;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    #poem-paper {
+        padding: 55px 40px;
+    }
+
+    .app-window {
+        left: 8%;
+        top: 8%;
+
+        width: 84vw;
+        height: 70vh;
+    }
+
+    .explorer-sidebar {
+        display: none;
+    }
+
+    .mission-grid,
+    .crew-list,
+    .assessment-columns,
+    .image-review-panel,
+    .assumption-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   MAIL
+   ========================================================= */
+
+.mail-window {
+    left: 20%;
+    top: 9%;
+    width: min(820px, 78vw);
+    height: min(560px, 76vh);
+}
+
+.mail-toolbar {
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 7px;
+    border-bottom: 1px solid #777;
+    background: #c0c0c0;
+}
+
+.mail-toolbar button {
+    padding: 3px 9px;
+    font: 11px Tahoma, Arial, sans-serif;
+}
+
+.mail-layout {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    background: #fff;
+    font: 11px Tahoma, Arial, sans-serif;
+}
+
+.mail-folders {
+    width: 170px;
+    flex-shrink: 0;
+    padding: 8px 5px;
+    border-right: 1px solid #777;
+    background: #eef3f8;
+}
+
+.mail-account {
+    margin-bottom: 8px;
+    padding: 5px 7px;
+    color: #164a8a;
+    font-weight: bold;
+}
+
+.mail-folder {
+    width: 100%;
+    display: block;
+    padding: 5px 7px;
+    border: 1px solid transparent;
+    background: transparent;
+    text-align: left;
+    font: 11px Tahoma, Arial, sans-serif;
+    cursor: pointer;
+}
+
+.mail-folder:hover,
+.mail-folder.active-mail-folder {
+    border: 1px solid #9daec5;
+    background: #dbe9fa;
+}
+
+.mail-main {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: 46% 54%;
+}
+
+.mail-list {
+    min-height: 0;
+    overflow-y: auto;
+    border-bottom: 1px solid #777;
+    background: #fff;
+}
+
+.mail-folder-view {
+    display: none;
+}
+
+.mail-folder-view.active-mail-view,
+#mail-view-inbox.active-mail-view {
+    display: block;
+}
+
+#mail-view-inbox {
+    display: block;
+}
+
+.mail-message {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 145px 1fr 55px;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 8px;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    color: #111;
+    text-align: left;
+    font: 11px Tahoma, Arial, sans-serif;
+    cursor: pointer;
+}
+
+.mail-message:hover,
+.mail-message.selected-mail {
+    background: #dbe9fa;
+}
+
+.mail-message.unread-mail strong,
+.mail-message.unread-mail span {
+    font-weight: bold;
+}
+
+.mail-message time {
+    color: #555;
+    text-align: right;
+}
+
+.mail-preview {
+    min-height: 0;
+    overflow-y: auto;
+    padding: 14px 18px;
+    background: #fff;
+    color: #111;
+    font: 12px/1.5 Tahoma, Arial, sans-serif;
+}
+
+.mail-preview h2 {
+    margin: 0 0 8px;
+    font-size: 15px;
+}
+
+.mail-header-line {
+    margin: 2px 0;
+    color: #444;
+}
+
+.mail-body {
+    margin-top: 16px;
+    white-space: pre-wrap;
+    font-family: "Courier New", monospace;
+    line-height: 1.55;
+}
+
+.mail-reconstruction-note {
+    margin-top: 18px;
+    padding-top: 8px;
+    border-top: 1px solid #bbb;
+    color: #777;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.mail-empty,
+.mail-preview-empty {
+    padding: 18px;
+    color: #777;
+}
+
+@media (max-width: 800px) {
+    .mail-folders {
+        width: 125px;
+    }
+
+    .mail-message {
+        grid-template-columns: 100px 1fr;
+    }
+
+    .mail-message time {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   CALCULATOR
+   ========================================================= */
+
+.calculator-window {
+    left: 34%;
+    top: 16%;
+    width: 390px;
+    height: 405px;
+}
+
+.calculator-body {
+    flex: 1;
+    padding: 12px;
+    background: #c0c0c0;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.calculator-display-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+#calculator-memory-indicator {
+    width: 22px;
+    min-width: 22px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px inset #ddd;
+    background: #c0c0c0;
+    font: bold 11px Tahoma, Arial, sans-serif;
+}
+
+#calculator-display {
+    flex: 1;
+    min-width: 0;
+    height: 34px;
+    padding: 3px 7px;
+    border: 2px inset #fff;
+    background: #fff;
+    color: #000;
+    font: 18px "Courier New", monospace;
+    text-align: right;
+}
+
+.calculator-keypad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+}
+
+.calc-key {
+    height: 45px;
+    padding: 0;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+    background: #c0c0c0;
+    color: #000080;
+    font: bold 13px Tahoma, Arial, sans-serif;
+    cursor: pointer;
+}
+
+.calc-key:active {
+    border-top: 2px solid #555;
+    border-left: 2px solid #555;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.operator-key,
+.equals-key {
+    color: #b00000;
+}
+
+.memory-key {
+    color: #000080;
+}
+
+.action-key {
+    color: #b00000;
+}
+
+.wide-key {
+    font-size: 10px;
+}
+
+@media (max-width: 520px) {
+    .calculator-window {
+        left: 5%;
+        top: 8%;
+        width: 90vw;
+        height: 405px;
+    }
+}
+
+
+/* =========================================================
+   POWERPOINT WARNING SEQUENCE
+   ========================================================= */
+
+.powerpoint-warning-window {
+    left: 31%;
+    top: 24%;
+    width: min(520px, 72vw);
+    height: auto;
+    min-height: 235px;
+}
+
+.powerpoint-titlebar {
+    background: linear-gradient(
+        90deg,
+        #7b2600,
+        #b84712
+    );
+}
+
+.powerpoint-warning-body {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 22px 22px 16px;
+    background: #ece9d8;
+    color: #111;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.powerpoint-warning-icon {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d35230;
+    color: #fff;
+    border: 1px solid #8d2c15;
+    font: bold 34px Arial, sans-serif;
+}
+
+.powerpoint-warning-copy {
+    min-width: 0;
+}
+
+.powerpoint-warning-copy h2 {
+    margin: 1px 0 12px;
+    font: bold 14px Tahoma, Arial, sans-serif;
+}
+
+.powerpoint-warning-copy p {
+    margin: 7px 0;
+    font: 12px/1.45 Tahoma, Arial, sans-serif;
+}
+
+.powerpoint-warning-small {
+    color: #555;
+}
+
+.powerpoint-warning-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    padding: 10px 14px 13px;
+    border-top: 1px solid #aaa;
+    background: #ece9d8;
+}
+
+.powerpoint-warning-actions button {
+    min-width: 115px;
+    min-height: 27px;
+    padding: 3px 10px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+    background: #ece9d8;
+    color: #111;
+    font: 11px Tahoma, Arial, sans-serif;
+    cursor: pointer;
+}
+
+.powerpoint-warning-actions button:active {
+    border-top: 2px solid #555;
+    border-left: 2px solid #555;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+#powerpoint-open-button {
+    font-weight: bold;
+}
+
+@media (max-width: 650px) {
+    .powerpoint-warning-window {
+        left: 7%;
+        top: 18%;
+        width: 86vw;
+    }
+
+    .powerpoint-warning-actions {
+        flex-wrap: wrap;
+    }
+}
